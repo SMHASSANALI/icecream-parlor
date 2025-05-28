@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #fdf6f6;
   --foreground: #171717;
 
   --font-nerko: 'Nerko_One', cursive;
@@ -10,7 +10,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ededed;
+    --background: #fdf6f6;
     --foreground: #0a0a0a;
     --font-nerko: 'Nerko_One', cursive;
     --font-inter: 'Inter', sans-serif;

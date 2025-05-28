@@ -13,7 +13,7 @@ const Button = ({ text }) => {
         tap: { scale: 0.98 },
       }}
       transition={{ duration: 0.2, ease: "easeInOut" }}
-      className="z-10 bg-white rounded-full border-gray-300 relative cursor-pointer"
+      className="z-10 bg-white rounded-full border-pink-500/50 relative cursor-pointer"
     >
       <motion.p
         variants={{
@@ -21,22 +21,22 @@ const Button = ({ text }) => {
           hover: { color: "white" },
         }}
         transition={{ duration: 0.1, delay: 0.1 }}
-        className="w-full h-16 flex items-center pl-6 pr-20 z-50 relative"
+        className="w-full h-12 flex items-center pl-6 pr-20 z-50 relative"
       >
         {text}
       </motion.p>
 
       <motion.div
         variants={{
-          initial: { width: "64px", height: "98.5%" },
-          hover: { width: "99%", height: "98.5%" },
+          initial: { width: "48px", height: "98%" },
+          hover: { width: "99%", height: "98%" },
         }}
         transition={{ duration: 0.3, ease: "easeIn", delay: 0.1 }}
         className="absolute right-[1px] top-1/2 -translate-y-1/2 bg-blue-700 text-white rounded-full flex items-center z-20"
       >
         <FaArrowRight
           size={12}
-          className="absolute top-1/2 right-[24px] -translate-y-1/2"
+          className="absolute top-1/2 right-[18px] -translate-y-1/2"
         />
       </motion.div>
     </motion.button>
