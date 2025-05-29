@@ -41,7 +41,6 @@ const CTA = () => {
     womenBun.src,
     duoCone.src,
     family.src,
-    flavours.src,
   ];
 
   useEffect(() => {

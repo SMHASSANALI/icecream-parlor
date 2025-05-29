@@ -106,7 +106,7 @@ const IceCreamCarousel = () => {
       </Swiper>
 
       <div className="w-full py-[60px] flex items-center justify-center">
-        <Button text="Our Products" />
+        <Button text="All Products" />
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import { Inter, Nerko_One } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/global/Navbar";
 import LenisProvider from "./components/global/LenisProvider";
+import Footer from "./components/global/Footer";
 
 const nerko = Nerko_One({
   variable: "--font-",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
           </div>
 
           {children}
+          <Footer />
         </LenisProvider>
       </body>
     </html>

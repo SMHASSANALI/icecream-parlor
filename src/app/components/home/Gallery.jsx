@@ -14,6 +14,7 @@ import img10 from "../../../../public/assets/random/icecream_van.jpg";
 import img11 from "../../../../public/assets/random/server.jpg";
 import img12 from "../../../../public/assets/random/icecream_van2.jpg";
 import Image from "next/image";
+import Button from "../global/Button";
 
 const Gallery = () => {
   const windowHeight = window.innerHeight;
@@ -95,7 +96,15 @@ const Gallery = () => {
         </motion.div>
       </main>
       <div className="h-[100dvh] m-4 relative">
-        <Image src={"/assets/random/icecream_container.jpg"} alt="" fill className={"w-full h-full object-cover"} />
+        <Image
+          src={"/assets/random/icecream_container.jpg"}
+          alt=""
+          fill
+          className={"w-full h-full object-cover"}
+        />
+      </div>
+      <div className="w-full flex flex-row items-center justify-center pt-10">
+        <Button text={"About Us"} />
       </div>
     </section>
   );

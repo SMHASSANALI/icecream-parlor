@@ -1,9 +1,10 @@
 import { FaArrowRight } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
-const Button = ({ text }) => {
+const Button = ({ text, onClick }) => {
   return (
     <motion.button
+      onClick={onClick}
       initial="initial"
       whileHover="hover"
       whileTap="tap"
