@@ -20,16 +20,16 @@ const Location = () => {
     <div ref={mapRef} className="px-4 my-[120px] h-screen relative">
       <motion.div
         style={{ y: textY }}
-        className="absolute top-0 right-4 max-w-sm flex flex-col items-center justify-center p-4 text-black"
+        className="absolute top-0 right-4 max-w-sm flex flex-col items-center justify-center p-4 text-black z-50"
       >
-        <p className="text-center text-sm font-light pb-4 mix-blend-exclusion z-10">
+        <p className="text-center text-sm font-light pb-4">
           Visit your nearest store to get your favorite ice cream!
         </p>
         <Button text="Find a Store" />
       </motion.div>
       <motion.div
         style={{ y: textY }}
-        className="absolute bottom-8 left-24 max-w-sm flex flex-col items-center justify-center p-4 text-black"
+        className="absolute bottom-8 left-24 max-w-sm flex flex-col items-center justify-center p-4 text-black z-50"
       >
         <p className="text-9xl text-blue-700 font-['nerko_one'] -tracking-tighter leading-0 flex flex-row items-center">
           3{" "}
@@ -44,6 +44,7 @@ const Location = () => {
           alt="map"
           width={200}
           height={400}
+          className="mix-blend-exclusion"
         />
       </motion.div>
       <motion.div
@@ -55,6 +56,7 @@ const Location = () => {
           alt="map"
           width={200}
           height={400}
+          className="mix-blend-exclusion"
         />
       </motion.div>
     </div>

@@ -58,17 +58,17 @@ const Page = () => {
           initial="hidden"
           animate={aboutInView ? "visible" : "hidden"}
           variants={iconVariants}
-          className="absolute top-10 left-30 opacity-30"
+          className="absolute top-10 left-4 md:left-30 opacity-30"
         >
-          <span className="text-9xl animate-bounce">🍦</span>
+          <span className="text-6xl md:text-9xl animate-bounce">🍦</span>
         </motion.div>
         <motion.div
           initial="hidden"
           animate={aboutInView ? "visible" : "hidden"}
           variants={iconVariants}
-          className="absolute bottom-10 right-30 opacity-30"
+          className="absolute bottom-10 right-4 md:right-30 opacity-30"
         >
-          <span className="text-9xl animate-bounce">🍨</span>
+          <span className="text-6xl md:text-9xl animate-bounce">🍨</span>
         </motion.div>
 
         <motion.div

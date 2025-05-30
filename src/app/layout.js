@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${nerko.variable} ${inter.variable} antialiased`}>
         <LenisProvider>
-          <div className="fixed w-full top-0 z-50 py-2 px-4">
+          <div className="fixed w-full top-0 z-[9999] px-4">
             <Navbar />
           </div>
 

@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Button from "./Button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,99 +38,96 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   const menuVariants = {
-    closed: { y: -50, opacity: 0 },
+    closed: {
+      y: -50,
+      opacity: 0,
+      scale: 0.95,
+      transition: {
+        duration: 0.2,
+        ease: "easeInOut",
+      },
+    },
     open: {
       y: 0,
       opacity: 1,
-      transition: { type: "bounce", duration: 0.3, damping: 20, stiffness: 300 },
+      scale: 1,
+      transition: {
+        type: "spring",
+        duration: 0.3,
+        damping: 20,
+        stiffness: 300,
+      },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, x: 30 },
+    hidden: { opacity: 0, x: 100 },
     visible: (i) => ({
       opacity: 1,
       x: 0,
-      transition: { delay: i * 0.15, duration: 0.4 },
+      transition: { delay: i * 0.1, duration: 0.3 },
     }),
   };
 
   return (
-    <div className="w-full h-[4rem] flex flex-row justify-between relative">
-      <div className="w-36 h-full flex items-center justify-start">
-        <p className="font-['nerko_one'] text-2xl">LOGO HERE</p>
+    <nav className="w-full h-16 sm:h-20 md:h-24 flex flex-row justify-between items-center px-4 sm:px-6 md:px-8 relative z-[9999]">
+      <div className="flex items-center justify-start">
+        <p className="font-['Nerko_One',_cursive] text-xl sm:text-2xl md:text-3xl lg:text-4xl text-blue-700">
+          LOGO HERE
+        </p>
       </div>
+
       <div className="flex items-center justify-center">
-        <Button text="Menu" onClick={toggleMenu} aria-expanded={isMenuOpen} />
+        <Button
+          text="Menu"
+          onClick={toggleMenu}
+          aria-expanded={isMenuOpen}
+          aria-controls="nav-menu"
+        />
       </div>
-      <motion.div
-        ref={menuRef}
-        initial="closed"
-        animate={isMenuOpen ? "open" : "closed"}
-        variants={menuVariants}
-        className={`absolute top-[4rem] right-0 bg-white rounded-lg shadow-lg p-8 w-80 `}
-        role="menu"
-      >
-        <ul className="flex flex-col gap-6">
-          <motion.li
-            custom={0}
-            variants={itemVariants}
-            initial="hidden"
-            animate={isMenuOpen ? "visible" : "hidden"}
+
+      {/* AnimatePresence handles mounting/unmounting with animation */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            id="nav-menu"
+            ref={menuRef}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={menuVariants}
+            className="absolute top-16 sm:top-20 md:top-24 right-0 bg-white rounded-lg shadow-lg p-4 sm:p-6 w-full max-w-[20rem] sm:max-w-[24rem] md:max-w-[28rem] mx-4 sm:mx-6 z-[99]"
+            role="menu"
           >
-            <Link
-              href="/"
-              onClick={() => setIsMenuOpen(false)}
-              className="font-['nerko_one'] text-4xl text-pink-600 hover:bg-gradient-to-r from-pink-200 to-blue-200 hover:text-white rounded-lg px-4 py-2 transition-all duration-300 w-full"
-            >
-              Home
-            </Link>
-          </motion.li>
-          <motion.li
-            custom={1}
-            variants={itemVariants}
-            initial="hidden"
-            animate={isMenuOpen ? "visible" : "hidden"}
-          >
-            <Link
-              href="/about"
-              onClick={() => setIsMenuOpen(false)}
-              className="font-['nerko_one'] text-4xl text-pink-600 hover:bg-gradient-to-r from-pink-200 to-blue-200 hover:text-white rounded-lg px-4 py-2 transition-all duration-300 w-full"
-            >
-              About
-            </Link>
-          </motion.li>
-          <motion.li
-            custom={2}
-            variants={itemVariants}
-            initial="hidden"
-            animate={isMenuOpen ? "visible" : "hidden"}
-          >
-            <Link
-              href="/products"
-              onClick={() => setIsMenuOpen(false)}
-              className="font-['nerko_one'] text-4xl text-pink-600 hover:bg-gradient-to-r from-pink-200 to-blue-200 hover:text-white rounded-lg px-4 py-2 transition-all duration-300 w-full"
-            >
-              Products
-            </Link>
-          </motion.li>
-          <motion.li
-            custom={3}
-            variants={itemVariants}
-            initial="hidden"
-            animate={isMenuOpen ? "visible" : "hidden"}
-          >
-            <Link
-              href="/locations"
-              onClick={() => setIsMenuOpen(false)}
-              className="font-['nerko_one'] text-4xl text-pink-600 hover:bg-gradient-to-r from-pink-200 to-blue-200 hover:text-white rounded-lg px-4 py-2 transition-all duration-300 w-full"
-            >
-              Locations
-            </Link>
-          </motion.li>
-        </ul>
-      </motion.div>
-    </div>
+            <ul className="flex flex-col gap-3 sm:gap-4 md:gap-5">
+              {[
+                { href: "/", label: "Home" },
+                { href: "/about", label: "About" },
+                { href: "/products", label: "Products" },
+              ].map((item, index) => (
+                <motion.li
+                  key={item.href}
+                  custom={index}
+                  variants={itemVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  role="menuitem"
+                >
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="font-['Nerko_One',_cursive] text-lg sm:text-xl md:text-2xl lg:text-3xl text-pink-600 hover:bg-gradient-to-r from-pink-200 to-blue-200 hover:text-white rounded-lg px-3 sm:px-4 py-2 transition-all duration-300 w-full block"
+                  >
+                    {item.label}
+                  </Link>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
   );
 };
 
