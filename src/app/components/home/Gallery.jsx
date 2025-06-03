@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import img1 from "../../../../public/assets/products/vanilla.jpg";
 import img2 from "../../../../public/assets/random/cone_car.jpg";
@@ -17,8 +17,14 @@ import Image from "next/image";
 import Button from "../global/Button";
 
 const Gallery = () => {
-  const windowHeight = window.innerHeight;
   const target = useRef(null);
+  const [windowHeight, setWindowHeight] = useState(0);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWindowHeight(window.innerHeight);
+    }
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: target,
