@@ -48,24 +48,20 @@ const CTA = () => {
       if (!isMounted.current) return;
 
       const { clientX, clientY } = event;
-      // Responsive image size based on screen width
       const imageSize = window.innerWidth < 640 ? 80 : window.innerWidth < 768 ? 120 : 160;
       const newX = Math.min(Math.max(clientX - imageSize / 2, 0), window.innerWidth - imageSize);
       const newY = Math.min(Math.max(clientY - imageSize / 2, 0), window.innerHeight - imageSize);
 
-      // Calculate distance from last position
       const distance = Math.sqrt(
         Math.pow(newX - lastPosition.current.x, 2) + Math.pow(newY - lastPosition.current.y, 2)
       );
 
-      // Spawn new image every ~100px
       if (distance > 100) {
-        const id = Date.now() + Math.random(); // Unique ID for each image
+        const id = Date.now() + Math.random();
         const index = currentIndex.current;
-        currentIndex.current = (currentIndex.current + 1) % urls.length; // Increment index, loop at 6
-        const randomRotation = Math.random() * 60 - 30; // Random rotation between -30 and 30 degrees
-
-        // Add new image
+        currentIndex.current = (currentIndex.current + 1) % urls.length; 
+        const randomRotation = Math.random() * 60 - 30; 
+        
         setImages((prev) => [
           ...prev,
           {

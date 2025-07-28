@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React, { useRef } from "react";
 import Button from "../global/Button";
-import { useScroll, useTransform, motion, useInView } from "framer-motion";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 const Location = () => {
   const mapRef = useRef(null);
@@ -17,7 +17,14 @@ const Location = () => {
   const img2Y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
-    <div ref={mapRef} className="px-4 my-[120px] h-screen relative">
+    <div ref={mapRef} className="px-4 min-h-screen relative bg-[#F9E3CF]">
+      <Image
+        src="/logo.png"
+        alt="map"
+        width={1000}
+        height={1000}
+        className="absolute -translate-x-1/2 -translate-y-1/2 top-[50%] left-[50%] h-fit w-fit"
+      />
       <motion.div
         style={{ y: textY }}
         className="absolute top-0 right-4 max-w-sm flex flex-col items-center justify-center p-4 text-black z-50"
@@ -29,7 +36,7 @@ const Location = () => {
       </motion.div>
       <motion.div
         style={{ y: textY }}
-        className="absolute bottom-8 left-24 max-w-sm flex flex-col items-center justify-center p-4 text-black z-50"
+        className="absolute bottom-38 left-24 max-w-sm flex flex-col items-center justify-center p-4 text-black z-50"
       >
         <p className="text-9xl text-blue-700 font-['nerko_one'] -tracking-tighter leading-0 flex flex-row items-center">
           3{" "}
@@ -49,7 +56,7 @@ const Location = () => {
       </motion.div>
       <motion.div
         style={{ y: img2Y }}
-        className="absolute bottom-0 right-24 z-10"
+        className="absolute bottom-24 right-24 z-10"
       >
         <Image
           src="/assets/random/duo_cone.jpg"

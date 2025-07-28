@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -9,10 +10,11 @@ const Footer = () => {
       <div className="bg-white w-full py-10 px-4 sm:px-6 md:px-10 lg:px-20">
         <div className="flex flex-col lg:flex-row justify-between gap-10 border-b border-gray-200 pb-10">
           {/* Logo Area */}
-          <div className="w-full lg:w-1/3">
-            <p className="font-['Nerko_One'] text-3xl sm:text-4xl text-blue-700">
+          <div className="w-full lg:w-1/3 relative">
+            {/* <p className="font-['Nerko_One'] text-3xl sm:text-4xl text-blue-700">
               LOGO HERE
-            </p>
+            </p> */}
+            <Image src="/logo.png" alt="logo" fill className="object-cover" />
           </div>
 
           {/* Social + Text */}

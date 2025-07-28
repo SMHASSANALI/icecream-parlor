@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Button from "./Button";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -72,9 +73,10 @@ const Navbar = () => {
   return (
     <nav className="w-full h-16 sm:h-20 md:h-24 flex flex-row justify-between items-center px-4 sm:px-6 md:px-8 relative z-[9999]">
       <div className="flex items-center justify-start">
-        <p className="font-['Nerko_One',_cursive] text-xl sm:text-2xl md:text-3xl lg:text-4xl text-blue-700">
+        {/* <p className="font-['Nerko_One',_cursive] text-xl sm:text-2xl md:text-3xl lg:text-4xl text-blue-700">
           LOGO HERE
-        </p>
+        </p> */}
+        <Image src="/logo.png" alt="logo" width={80} height={80} />
       </div>
 
       <div className="flex items-center justify-center">

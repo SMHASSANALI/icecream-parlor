@@ -17,8 +17,20 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Ice Cream Parlor",
+  title: "Frosted Bloom | Ice Cream Shop",
   description: "Delight in every scoop 🍨",
+  favicon: "/logo.png",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  openGraph: {
+    title: "Frosted Bloom",
+    description: "Delight in every scoop 🍨",
+    images: "/logo.png",
+  },
+  icon: "/logo.png",
 };
 
 export default function RootLayout({ children }) {
