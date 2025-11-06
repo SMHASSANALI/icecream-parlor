@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { FaFacebookF, FaSquareInstagram, FaTiktok } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -28,15 +29,17 @@ const Footer = () => {
 
             <div className="flex flex-col gap-3 sm:gap-4">
               {[
-                { label: "Facebook" },
-                { label: "Instagram" },
-                { label: "TikTok" },
+                { label: "Facebook", icon: <FaFacebookF /> },
+                { label: "Instagram", icon: <FaSquareInstagram /> },
+                { label: "TikTok", icon: <FaTiktok /> },
               ].map((item) => (
                 <div
                   key={item.label}
                   className="flex flex-row gap-3 items-center"
                 >
-                  <span className="border border-blue-500 rounded-full size-6 sm:size-8"></span>
+                  <span className="flex items-center justify-center rounded-full border p-1.5">
+                    {item.icon}
+                  </span>
                   <p className="text-sm sm:text-base">{item.label}</p>
                 </div>
               ))}

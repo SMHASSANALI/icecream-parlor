@@ -21,8 +21,8 @@ const Location = () => {
       <Image
         src="/logo.png"
         alt="map"
-        width={1000}
-        height={1000}
+        width={100}
+        height={100}
         className="absolute -translate-x-1/2 -translate-y-1/2 top-[50%] left-[50%] h-fit w-fit"
       />
       <motion.div
@@ -45,24 +45,25 @@ const Location = () => {
           </span>{" "}
         </p>
       </motion.div>
-      <motion.div style={{ y: img1Y }} className="absolute top-24 left-24 z-10">
+      <motion.div
+        style={{ y: img1Y }}
+        className="absolute top-24 left-4 md:left-24 z-10 w-[120px] rounded-lg overflow-hidden h-[200px] md:w-[200px] md:h-[350px]"
+      >
         <Image
           src="/assets/random/cone_car.jpg"
           alt="map"
-          width={200}
-          height={400}
+          fill
           className="mix-blend-exclusion"
         />
       </motion.div>
       <motion.div
         style={{ y: img2Y }}
-        className="absolute bottom-24 right-24 z-10"
+        className="absolute bottom-24 right-4 md:right-24 z-10 w-[120px] rounded-lg overflow-hidden h-[200px] md:w-[200px] md:h-[350px]"
       >
         <Image
           src="/assets/random/duo_cone.jpg"
           alt="map"
-          width={200}
-          height={400}
+          fill
           className="mix-blend-exclusion"
         />
       </motion.div>

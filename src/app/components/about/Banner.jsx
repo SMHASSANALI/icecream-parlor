@@ -87,7 +87,7 @@ const Banner = () => {
 
   return (
     <section className="flex flex-col justify-center items-center min-h-screen py-[10vh] space-y-[10vh] overflow-clip">
-      <h1 className="text-blue-700 text-4xl md:text-9xl max-w-5xl md:mx-auto text-center uppercase font-['nerko_one'] md:leading-[6.8rem] tracking-[0.02rem]">
+      <h1 className="text-blue-700 text-4xl md:text-8xl lg:text-9xl max-w-5xl md:mx-auto text-center uppercase font-['nerko_one'] md:leading-[6.8rem] tracking-[0.02rem]">
         Welcome to Frosted Bloom <br/> Where Freshness Meets Flavor
       </h1>
       <div ref={containerRef} className="h-[300vh] relative w-full">

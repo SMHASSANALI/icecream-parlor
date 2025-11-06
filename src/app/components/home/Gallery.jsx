@@ -37,9 +37,9 @@ const Gallery = () => {
 
   return (
     <section className="my-[100px]">
-      <h2 className="text-3xl text-center leading-0">
+      <h2 className="text-2xl md:text-3xl text-center leading-0">
         Not just Ice Cream but <br />{" "}
-        <span className="text-blue-700 font-['nerko_one'] uppercase text-8xl">
+        <span className="text-blue-700 font-['nerko_one'] uppercase text-6xl md:text-8xl">
           Momments
         </span>{" "}
       </h2>
@@ -101,12 +101,12 @@ const Gallery = () => {
           </div>
         </motion.div>
       </main>
-      <div className="h-[100dvh] m-4 relative">
+      <div className="h-[40dvh] md:h-[100dvh] lg:m-4 relative">
         <Image
           src={"/assets/random/icecream_container.jpg"}
           alt=""
           fill
-          className={"w-full h-full object-cover"}
+          className={"w-full h-full object-cover object-center"}
         />
       </div>
       <div className="w-full flex flex-row items-center justify-center pt-10">

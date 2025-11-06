@@ -21,9 +21,9 @@ const Story = () => {
     <main className="min-h-[100vh] bg-white flex items-center">
       <div
         ref={containerRef}
-        className="flex flex-col md:flex-row w-full min-h-screen"
+        className="flex flex-col lg:flex-row w-full min-h-screen"
       >
-        <div className="p-[10px] md:p-[30px] h-fit md:h-screen w-full md:w-6/12 flex items-center justify-center">
+        <div className="p-[10px] md:p-[30px] h-fit lg:h-screen w-full lg:w-6/12 flex items-center justify-center">
           <div className="w-full md:w-10/12 h-[400px] relative">
             <motion.div
               initial={{ boxShadow: "0px 0px 0px rgba(0, 0, 0, 0)" }}
@@ -52,7 +52,7 @@ const Story = () => {
             />
           </div>
         </div>
-        <div className="bg-sky-50 w-full md:w-6/12 h-full min-h-[350px] md:min-h-screen flex flex-col justify-center items-start p-[10px] md:p-[30px]">
+        <div className="bg-sky-50 w-full lg:w-6/12 h-full min-h-[350px] lg:min-h-screen flex flex-col justify-center items-start p-[10px] md:p-[30px]">
           <motion.span
             className="text-blue-700 text-sm md:text-lg font-semibold font-['inter'] uppercase"
             variants={textVariant}
